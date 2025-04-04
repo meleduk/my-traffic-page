@@ -33,6 +33,7 @@
             justify-content: center;
             padding: 10px;
             border-radius: 5px;
+            z-index: 10; /* Pastikan tombol di atas video */
         }
         .play {
             background-color: transparent;
@@ -41,17 +42,16 @@
             padding: 0;
         }
         .play img {
-            width: 100px; /* Adjust size of the YouTube logo */
+            width: 100px;
             height: auto;
             transition: transform 0.3s ease;
         }
         .play img:hover {
-            transform: scale(1.1); /* Slight zoom effect on hover */
+            transform: scale(1.1);
         }
     </style>
 </head>
 <body>
-
     <div class="video-container">
         <video id="videoPlayer" controls>
             <source src="your-video-file.mp4" type="video/mp4">
@@ -66,22 +66,23 @@
     </div>
 
     <script>
-        // Define an array of YouTube URLs
+        // Array URL
         const directlinkcpm = [
             "https://www.effectiveratecpm.com/ucx259g9cu?key=96875b3a1b66e3a970dc96158820cf65", 
             "https://www.effectiveratecpm.com/hmvie2p1?key=03ce3b0c19e8ddf2b24ce9e0a1be23e3", 
             "https://www.effectiveratecpm.com/c0q6p6z80?key=a57564092ff7990dd03f8f34ae74fb45", 
             "https://www.effectiveratecpm.com/h4tahth3?key=13ee2b9856a740f2aaa5865f92188d59",  
-	    "https://www.effectiveratecpm.com/sfiirg0jps?key=732032f91d3a572307fd258d08b0f1f3", 
+            "https://www.effectiveratecpm.com/sfiirg0jps?key=732032f91d3a572307fd258d08b0f1f3", 
             "https://www.effectiveratecpm.com/xw57e8kp25?key=fe162141a91e01b6940195a99bd644bf" 
         ];
 
-        // Function to redirect to a random link
+        // Fungsi redirect
         function redirectToRandomLink() {
+            console.log("Button clicked!"); // Debugging
             const randomIndex = Math.floor(Math.random() * directlinkcpm.length);
-            window.location.href = directlinkcpm[randomIndex]; // Redirect to a random YouTube link
+            console.log("Redirecting to:", directlinkcpm[randomIndex]); // Debugging
+            window.location.href = directlinkcpm[randomIndex];
         }
     </script>
-
 </body>
 </html>
