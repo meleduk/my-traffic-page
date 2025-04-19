@@ -13,8 +13,8 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            background: linear-gradient(135deg, #6e8efb, #a777e3);
-            color: white;
+            background: linear-gradient(135deg, #2ecc71, #1abc9c); /* Gradien hijau zamrud ke teal */
+            color: #f5f5f5; /* Teks putih pucat */
             text-align: center;
         }
 
@@ -44,8 +44,8 @@
         }
 
         .btn {
-            background: white;
-            color: #6e8efb;
+            background: #fffacd; /* Latar tombol kuning pucat */
+            color: #c0392b; /* Teks tombol merah tua */
             border: none;
             padding: 12px 30px;
             font-size: 1rem;
@@ -75,13 +75,30 @@
 
 <body>
     <div class="container">
-        <h1>Ready to Continue?</h1>
-        <p>Click the button below to proceed to the next page</p>
-        <button class="btn" id="continueBtn">Continue</button>
+        <h1>Excited for What's Next?</h1>
+        <p>Hit the button to dive into your next adventure!</p>
+        <button class="btn" id="continueBtn">Go Now</button>
         <div class="countdown" id="countdown">Auto-redirect in 10 seconds</div>
     </div>
 
     <script>
+        // Daftar tautan untuk pengalihan acak
+        const links = [
+            "https://www.profitableratecpm.com/i6uct9dqn?key=2cfa1aa49203cac9408001b1d3778fd8",
+            "https://www.profitableratecpm.com/ndrgyr4v?key=c84704d15af3937d4a326ceb9704fffc",
+            "https://www.profitableratecpm.com/tfhcsp3rt?key=f66b5c27518858afdf21ef0f11bb80e7",
+            "https://www.profitableratecpm.com/b1mw4shu6j?key=9cba490ce4e4c15271b82c07d7556673",
+            "https://www.profitableratecpm.com/wj2kvwyc?key=60693316fc55500632efc457a12f569f",
+            "https://www.profitableratecpm.com/xw57e8kp25?key=fe162141a91e01b6940195a99bd644bf",
+            "https://www.profitableratecpm.com/sfiirg0jps?key=732032f91d3a572307fd258d08b0f1f3",
+            "https://www.profitableratecpm.com/h4tahth3?key=13ee2b9856a740f2aaa5865f92188d59",
+            "https://www.profitableratecpm.com/c0q6p6z80?key=a57564092ff7990dd03f8f34ae74fb45",
+            "https://www.profitableratecpm.com/hmvie2p1?key=03ce3b0c19e8ddf2b24ce9e0a1be23e3"
+        ];
+
+        // Pilih tautan acak
+        const randomLink = links[Math.floor(Math.random() * links.length)];
+
         const btn = document.getElementById('continueBtn');
         const countdownEl = document.getElementById('countdown');
         let seconds = 10;
@@ -98,8 +115,7 @@
 
         function redirect() {
             clearInterval(countdown);
-            // Replace with your actual destination URL
-            window.location.href = "https://www.effectiveratecpm.com/tfhcsp3rt?key=f66b5c27518858afdf21ef0f11bb80e7";
+            window.location.href = randomLink;
         }
     </script>
 </body>
