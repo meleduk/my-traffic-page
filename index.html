@@ -1,83 +1,107 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fullscreen Video Player</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <title>Transit Page</title>
     <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            overflow: hidden;
-        }
-        .video-container {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            background-color: #000;
-        }
-        video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .controls {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+        body {
+            font-family: 'Arial', sans-serif;
             display: flex;
-            align-items: center;
             justify-content: center;
-            padding: 10px;
-            border-radius: 5px;
-            z-index: 10; /* Pastikan tombol di atas video */
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            color: white;
+            text-align: center;
         }
-        .play {
-            background-color: transparent;
+
+        .container {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            background: white;
+            color: #6e8efb;
             border: none;
+            padding: 12px 30px;
+            font-size: 1rem;
+            border-radius: 50px;
             cursor: pointer;
-            padding: 0;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
-        .play img {
-            width: 100px;
-            height: auto;
-            transition: transform 0.3s ease;
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
         }
-        .play img:hover {
-            transform: scale(1.1);
+
+        .btn:active {
+            transform: translateY(1px);
+        }
+
+        .countdown {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
         }
     </style>
 </head>
-<body>
-    <div class="video-container">
-        <video id="videoPlayer" controls>
-            <source src="your-video-file.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
 
-        <div class="controls">
-            <button class="play" onclick="redirectToRandomLink()">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png" alt="YouTube Logo">
-            </button>
-        </div>
+<body>
+    <div class="container">
+        <h1>Ready to Continue?</h1>
+        <p>Click the button below to proceed to the next page</p>
+        <button class="btn" id="continueBtn">Continue</button>
+        <div class="countdown" id="countdown">Auto-redirect in 10 seconds</div>
     </div>
 
     <script>
-        // Array URL
-        const directlinkcpm = [ 
-            "https://www.effectiveratecpm.com/tfhcsp3rt?key=f66b5c27518858afdf21ef0f11bb80e7"
-        ];
+        const btn = document.getElementById('continueBtn');
+        const countdownEl = document.getElementById('countdown');
+        let seconds = 10;
+        let countdown = setInterval(() => {
+            seconds--;
+            countdownEl.textContent = `Auto-redirect in ${seconds} seconds`;
+            if (seconds <= 0) {
+                clearInterval(countdown);
+                redirect();
+            }
+        }, 1000);
 
-        // Fungsi redirect
-        function redirectToRandomLink() {
-            console.log("Button clicked!"); // Debugging
-            const randomIndex = Math.floor(Math.random() * directlinkcpm.length);
-            console.log("Redirecting to:", directlinkcpm[randomIndex]); // Debugging
-            window.location.href = directlinkcpm[randomIndex];
+        btn.addEventListener('click', redirect);
+
+        function redirect() {
+            clearInterval(countdown);
+            // Replace with your actual destination URL
+            window.location.href = "https://www.effectiveratecpm.com/tfhcsp3rt?key=f66b5c27518858afdf21ef0f11bb80e7";
         }
     </script>
 </body>
+
 </html>
